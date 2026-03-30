@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Play, Plus, MoreHorizontal, Star, Heart, MessageSquare } from "lucide-react";
+import { Play, Plus, MoreHorizontal, Star, Heart, MessageSquare, ListMusic, FolderPlus, ChevronRight } from "lucide-react";
 import { albums, reviews } from "@/data/mockData";
 
 const AlbumPage = () => {
