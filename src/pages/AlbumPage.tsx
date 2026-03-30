@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Play, Plus, MoreHorizontal, Star, Heart, MessageSquare } from "lucide-react";
+import { Play, Plus, MoreHorizontal, Star, Heart, MessageSquare, ListMusic, FolderPlus, ChevronRight } from "lucide-react";
 import { albums, reviews } from "@/data/mockData";
 
 const AlbumPage = () => {
@@ -118,7 +118,41 @@ const AlbumPage = () => {
 
         {/* Sidebar: Related */}
         <div>
+          {/* Interaction Hub */}
           <div className="sonic-card">
+            <h3 className="font-display text-base font-semibold">Interaction Hub</h3>
+            <p className="sonic-label mt-3">Personal Rating</p>
+            <div className="mt-2 flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={24} className="fill-primary text-primary cursor-pointer hover:scale-110 transition-transform" />
+              ))}
+            </div>
+            <p className="sonic-label mt-4">Log Thoughts</p>
+            <textarea
+              placeholder="How does this album feel?"
+              className="mt-2 w-full rounded-md border border-border bg-muted p-3 text-xs text-foreground placeholder:text-muted-foreground outline-none resize-none h-24"
+            />
+            <button className="mt-3 w-full rounded-md bg-primary py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90 transition-colors">
+              Log Album
+            </button>
+
+            <div className="mt-5 flex flex-col gap-2">
+              {[
+                { icon: ListMusic, label: "Listen List" },
+                { icon: Heart, label: "Add to Favorites" },
+                { icon: FolderPlus, label: "Add to Collection" },
+              ].map((item) => (
+                <button key={item.label} className="flex items-center gap-3 rounded-md px-3 py-2.5 text-xs transition-colors hover:bg-muted">
+                  <item.icon size={14} className="text-primary" />
+                  <span className="flex-1 text-left">{item.label}</span>
+                  <ChevronRight size={14} className="text-muted-foreground" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Related Echoes */}
+          <div className="mt-5 sonic-card">
             <h3 className="font-display text-base font-semibold">Related Echoes</h3>
             <div className="mt-4 flex flex-col gap-4">
               {albums.filter((a) => a.id !== album.id).slice(0, 3).map((a) => (
@@ -131,7 +165,7 @@ const AlbumPage = () => {
             </div>
           </div>
 
-          <div className="mt-6 rounded-lg bg-sonic-coral/20 p-5">
+          <div className="mt-5 rounded-lg bg-sonic-coral/20 p-5">
             <p className="font-display text-base font-bold">Sonic Reach</p>
             <p className="mt-2 text-xs text-muted-foreground">
               This album is trending in <span className="text-foreground font-semibold">14 countries</span> and has been added to over{" "}
