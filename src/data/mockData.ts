@@ -76,6 +76,22 @@ export interface UserProfile {
   followers: number;
 }
 
+/** A log entry from a friend / community member */
+export interface ActivityLog {
+  id: string;
+  username: string;
+  avatar: string;
+  albumId: string;
+  albumTitle: string;
+  albumCover: string;
+  artistName: string;
+  rating: number;       // 0-5, half-stars stored as 0.5 increments
+  liked: boolean;
+  date: string;         // display date
+  reviewSnippet?: string;
+  rewatch?: boolean;     // "re-listen"
+}
+
 export const albums: Album[] = [
   {
     id: "electric-dreams",
@@ -131,7 +147,6 @@ export const albums: Album[] = [
   },
 ];
 
-// Populate tracks for the first album (Neon Echoes style)
 const neonEchoTracks: Track[] = [
   { id: "t1", number: 1, title: "Digital Mirage", duration: "04:32", albumId: "electric-dreams", albumTitle: "Electric Dreams", artistName: "The Synthesizer Collective", cover: track1, genre: "IDM / Techno", bpm: 128, label: "Signal Form", explicit: true },
   { id: "t2", number: 2, title: "Spectral Flow", duration: "05:11", albumId: "electric-dreams", albumTitle: "Electric Dreams", artistName: "The Synthesizer Collective", cover: track2, genre: "IDM / Techno", bpm: 132, label: "Signal Form" },
@@ -228,3 +243,91 @@ export const userProfile: UserProfile = {
   following: 893,
   followers: 2100,
 };
+
+/* ── Friend Activity Feed ── */
+export const friendActivity: ActivityLog[] = [
+  {
+    id: "a1",
+    username: "Anirudh_R",
+    avatar: artist1,
+    albumId: "electric-dreams",
+    albumTitle: "Electric Dreams",
+    albumCover: album1,
+    artistName: "The Synthesizer Collective",
+    rating: 3.5,
+    liked: false,
+    date: "Mar 27",
+    rewatch: true,
+  },
+  {
+    id: "a2",
+    username: "prarthana",
+    avatar: artist2,
+    albumId: "midnight-session",
+    albumTitle: "Midnight Session",
+    albumCover: album2,
+    artistName: "Soul Quintet",
+    rating: 3.5,
+    liked: false,
+    date: "Mar 28",
+  },
+  {
+    id: "a3",
+    username: "prarthana",
+    avatar: artist2,
+    albumId: "static-void",
+    albumTitle: "Static Void",
+    albumCover: album3,
+    artistName: "Velvet Echo",
+    rating: 5,
+    liked: true,
+    date: "Mar 28",
+  },
+  {
+    id: "a4",
+    username: "prarthana",
+    avatar: artist2,
+    albumId: "golden-hour",
+    albumTitle: "Golden Hour",
+    albumCover: album4,
+    artistName: "Aura Chamber",
+    rating: 4.5,
+    liked: false,
+    date: "Mar 28",
+  },
+  {
+    id: "a5",
+    username: "VaishuBeats",
+    avatar: artist3,
+    albumId: "electric-dreams",
+    albumTitle: "Electric Dreams",
+    albumCover: album1,
+    artistName: "The Synthesizer Collective",
+    rating: 4,
+    liked: true,
+    date: "Mar 21",
+    reviewSnippet: "The layering on this record is phenomenal. Each listen reveals something new.",
+  },
+  {
+    id: "a6",
+    username: "marcus_v",
+    avatar: userAvatar,
+    albumId: "midnight-session",
+    albumTitle: "Midnight Session",
+    albumCover: album2,
+    artistName: "Soul Quintet",
+    rating: 4.5,
+    liked: true,
+    date: "Mar 26",
+    reviewSnippet: "Soul Quintet keeps pushing jazz into thrilling new territory.",
+  },
+];
+
+export const popularWithFriends: { albumId: string; cover: string; title: string }[] = [
+  { albumId: "static-void", cover: album3, title: "Static Void" },
+  { albumId: "electric-dreams", cover: album1, title: "Electric Dreams" },
+  { albumId: "midnight-session", cover: album2, title: "Midnight Session" },
+  { albumId: "golden-hour", cover: album4, title: "Golden Hour" },
+  { albumId: "electric-dreams", cover: track1, title: "Digital Mirage (Single)" },
+  { albumId: "midnight-session", cover: track2, title: "Spectral Flow (Single)" },
+];
