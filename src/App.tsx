@@ -9,6 +9,14 @@ import AlbumPage from "@/pages/AlbumPage";
 import ArtistPage from "@/pages/ArtistPage";
 import TrackPage from "@/pages/TrackPage";
 import ProfilePage from "@/pages/ProfilePage";
+import ActivityPage from "@/pages/ActivityPage";
+import ExplorePage from "@/pages/ExplorePage";
+import AlbumsPage from "@/pages/AlbumsPage";
+import ListsPage from "@/pages/ListsPage";
+import MembersPage from "@/pages/MembersPage";
+import JournalPage from "@/pages/JournalPage";
+import ReviewsPage from "@/pages/ReviewsPage";
+import SettingsPage from "@/pages/SettingsPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +34,14 @@ const App = () => (
             <Route path="/artist/:id" element={<ArtistPage />} />
             <Route path="/track/:id" element={<TrackPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/activity" element={<ActivityPage />} />
+            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/albums" element={<AlbumsPage />} />
+            <Route path="/lists" element={<ListsPage />} />
+            <Route path="/members" element={<MembersPage />} />
+            <Route path="/journal" element={<JournalPage />} />
+            <Route path="/reviews" element={<ReviewsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
