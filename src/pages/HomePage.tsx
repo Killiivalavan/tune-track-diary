@@ -48,7 +48,7 @@ const ActivityCard = ({ log }: { log: ActivityLog }) => (
     <div className="mt-1 flex items-center gap-2">
       <Stars rating={log.rating} />
       {log.rewatch && <RotateCcw size={11} className="text-muted-foreground" />}
-      {log.liked && <Heart size={11} className="text-orange-400" fill="currentColor" />}
+      {log.liked && <Heart size={11} className="text-destructive" fill="currentColor" />}
     </div>
 
     {/* Date */}
